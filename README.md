@@ -62,28 +62,28 @@ sudo docker info
 Ubuntu:Ctrl+Alt+T打开终端   
 Windows:Win+X选择"终端管理员"  
 若是AMD架构，不需要指定"--platform"  
-'docker run -it --rm ubuntu:22.04 bash'  
+`docker run -it --rm ubuntu:22.04 bash`  
 如果是ARM架构，可以用"--platform"指定  
-'docker run -it --rm --platform linux/arm64 arm64v8/ubuntu:22.04 bash'  
+`docker run -it --rm --platform linux/arm64 arm64v8/ubuntu:22.04 bash`  
 此处加上成功和失败两张照片  
 ## 3. 在容器中下载所需软件包
 进入容器后执行,第二步的docker run会下载并自动进入容器
-'apt update'  
+`apt update`  
 以下载libeigen3-dev包为例  
-'apt install -y --download-only libeigen3-dev'  
+`apt install -y --download-only libeigen3-dev`  
 此处添加下载成功图片  
 下载后的安装包默认在此路径(Ubuntu):/var/cache/apt/archives/  
 ## 4. 将软件包拷贝到本地
 查找容器 ID 或名称
-'docker ps -a'
-拷贝软件包到本地
-'docker cp <容器ID或名称>:/var/cache/apt/archives/ ~/Desktop/offline-packages/'  
+`docker ps -a`
+拷贝软件包到本地,替换<容器ID或名称>为docker ps -a的结果  
+`docker cp <容器ID或名称>:/var/cache/apt/archives/ ~/Desktop/offline-packages/`  
 此处添加图片  
 ## 5. 将安装包传输到离线电脑
 
 ### 5.1 使用 SCP 传输（通过网络）
 bash
-scp -r ~/Desktop/offline-packages/ user@192.168.1.200:~/Downloads/
+`scp -r ~/Desktop/offline-packages/ user@192.168.1.200:~/Downloads/`  
 ### 5.2 使用 U盘 传输（物理方式）
 将 `~/Desktop/offline-packages/` 目录复制到 U盘，然后在离线电脑上从 U盘 复制到目标位置。
 
@@ -91,11 +91,11 @@ scp -r ~/Desktop/offline-packages/ user@192.168.1.200:~/Downloads/
 
 ### 6.1 模拟安装测试
 bash
-sudo dpkg --dry-run -i ~/Downloads/offline-packages/*.deb
+`sudo dpkg --dry-run -i ~/Downloads/offline-packages/*.deb`  
 ### 6.2 正式安装
 如果模拟安装无冲突提示，执行正式安装：
 bash
-sudo dpkg -i ~/Downloads/offline-packages/*.deb
+`sudo dpkg -i ~/Downloads/offline-packages/*.deb`  
 ## 注意事项
 
 1. 如果模拟安装提示 "conflicts with" 或 "breaks existing packages"，需要手动解决依赖冲突
