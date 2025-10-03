@@ -24,7 +24,8 @@ Windows:Win+X选择"终端管理员"
 ![失败拉取镜像](https://github.com/WangYiNingbigdatabase/test/blob/main/%E5%A4%B1%E8%B4%A5%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F.png)  
 ![成功拉取镜像](https://github.com/WangYiNingbigdatabase/test/blob/main/%E6%88%90%E5%8A%9F%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F.png)
 ## 3. 在容器中下载所需软件包
-进入容器后执行,第二步的docker run会下载并自动进入容器
+进入容器后执行,第二步的docker run会下载并自动进入容器  
+必须先update  
 `apt update`  
 以下载libeigen3-dev包为例  
 `apt install -y --download-only libeigen3-dev`  
