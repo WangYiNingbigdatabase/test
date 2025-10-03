@@ -5,7 +5,7 @@
 
 本文档介绍如何在联网机器上通过 Docker 容器下载特定架构和系统版本的软件包，并将其转移到离线环境中进行安装。
 
-https://github.com/WangYiNingbigdatabase/test/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-10-03%20164645.png
+![img1](https://github.com/WangYiNingbigdatabase/test/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-10-03%20164645.png)
 ## 1. Docker 安装与配置
 
 ### 1.1 卸载旧版本并安装依赖
