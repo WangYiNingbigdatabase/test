@@ -4,16 +4,16 @@
 ## 概述
 
 本文档介绍如何在联网机器上通过 Docker 容器下载特定架构和系统版本的软件包，并将其转移到离线环境中进行安装。  
-此处放置一张流程图
+
 
 ## 流程介绍
+![流程图](https://github.com/WangYiNingbigdatabase/test/blob/main/%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
 1.安装Docker:Docker可以安装docker desktop或者docker engine,下面为Ubuntu提供docker engine的自动安装脚本和手动安装流程,为windows提供了一个安装docker desktop的链接。  
 2.下载所需镜像:其实就是下载与离线电脑架构(如ARM/AMD)、版本(如Ubuntu22.04/Ubuntu20.04)的镜像。  
 3.在容器内下载所需包:以download-only模式下载，不会安装，对于ubuntu来说，会下载许多.deb包。  
 4.将安装包拷贝到本地:使用U盘或SCP远程传输均可,注意修改为自己的路径。  
 5.在离线的电脑安装:建议先模拟安装确保没有冲突后再安装(同教程)。  
 
-![img1](https://github.com/WangYiNingbigdatabase/test/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-10-03%20164645.png)
 ## 1. Docker 安装与配置
 
 ### 1.1 卸载旧版本并安装依赖
@@ -65,20 +65,23 @@ Windows:Win+X选择"终端管理员"
 `docker run -it --rm ubuntu:22.04 bash`  
 如果是ARM架构，可以用"--platform"指定  
 `docker run -it --rm --platform linux/arm64 arm64v8/ubuntu:22.04 bash`  
-此处加上成功和失败两张照片  
+![失败拉取镜像](https://github.com/WangYiNingbigdatabase/test/blob/main/%E5%A4%B1%E8%B4%A5%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F.png)  
+![成功拉取镜像](https://github.com/WangYiNingbigdatabase/test/blob/main/%E6%88%90%E5%8A%9F%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F.png)
 ## 3. 在容器中下载所需软件包
 进入容器后执行,第二步的docker run会下载并自动进入容器
 `apt update`  
 以下载libeigen3-dev包为例  
 `apt install -y --download-only libeigen3-dev`  
-此处添加下载成功图片  
+![成功下载包](https://github.com/WangYiNingbigdatabase/test/blob/main/%E6%88%90%E5%8A%9F%E4%B8%8B%E8%BD%BD%E5%8C%85.png)
 下载后的安装包默认在此路径(Ubuntu):/var/cache/apt/archives/  
+![查看下载包](https://github.com/WangYiNingbigdatabase/test/blob/main/%E6%9F%A5%E7%9C%8B%E4%B8%8B%E8%BD%BD%E5%8C%85.png)
 ## 4. 将软件包拷贝到本地
 查找容器 ID 或名称
 `docker ps -a`
+![查找容器](https://github.com/WangYiNingbigdatabase/test/blob/main/%E6%9F%A5%E6%89%BE%E5%AE%B9%E5%99%A8.png) 
 拷贝软件包到本地,替换<容器ID或名称>为docker ps -a的结果  
 `docker cp <容器ID或名称>:/var/cache/apt/archives/ ~/Desktop/offline-packages/`  
-此处添加图片  
+![成功拷贝包](https://github.com/WangYiNingbigdatabase/test/blob/main/%E6%88%90%E5%8A%9F%E6%8B%B7%E8%B4%9D%E5%8C%85.png) 
 ## 5. 将安装包传输到离线电脑
 
 ### 5.1 使用 SCP 传输（通过网络）
