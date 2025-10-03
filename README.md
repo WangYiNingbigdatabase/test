@@ -81,15 +81,15 @@ bash
 ### Ubuntu安装docker engine
 
 ### 1.1 卸载旧版本并安装依赖
-bash
-sudo apt-get remove docker docker-engine docker.io containerd runc
-sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg lsb-release
+bash  
+sudo apt-get remove docker docker-engine docker.io containerd runc  
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg lsb-release  
 ### 1.2 添加阿里云 Docker 镜像源
 bash
-添加阿里云 GPG Key
-curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg| sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+添加阿里云 GPG Key  
+curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg| sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg  
 添加阿里云 Docker APT 源
-echo "deb [arch=(dpkg−−print−architecture)signed−by=/usr/share/keyrings/docker−archive−keyring.gpg]https://mirrors.aliyun.com/docker−ce/linux/ubuntu(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo "deb [arch=(dpkg−−print−architecture)signed−by=/usr/share/keyrings/docker−archive−keyring.gpg]https://mirrors.aliyun.com/docker−ce/linux/ubuntu(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null  
 更新软件包列表
 sudo apt update
 sudo apt-get update
