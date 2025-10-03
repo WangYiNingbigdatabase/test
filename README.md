@@ -57,10 +57,10 @@ bash
 `sudo dpkg -i ~/Downloads/offline-packages/*.deb`  
 ## 注意事项
 
-1. 如果模拟安装提示 "conflicts with" 或 "breaks existing packages"，需要手动解决依赖冲突
-2. 确保离线环境与下载环境的系统版本和架构一致
-3. 对于复杂的依赖关系，可能需要下载并安装所有依赖包
-4. 建议在下载前确认所需软件包的准确名称和版本
+1. 下载过程中可能遇到网络问题，可以通过设置镜像源或代理解决  
+2.   
+3.   
+4. 确保离线环境与下载环境的系统版本和架构一致  
 
 ## 参考资源
 ### 相关链接
@@ -84,31 +84,31 @@ echo "deb [arch=(dpkg−−print−architecture)signed−by=/usr/share/keyrings/
 sudo apt update
 sudo apt-get update
 ### 1.3 安装 Docker
-bash
-sudo apt install docker-ce docker-ce-cli containerd.io
-验证安装
-sudo docker version
-sudo systemctl status docker
+bash  
+sudo apt install docker-ce docker-ce-cli containerd.io  
+验证安装  
+sudo docker version  
+sudo systemctl status docker  
 ### 1.4 配置用户权限
-bash
-sudo groupadd docker
-sudo gpasswd -a ${USER} docker
-sudo service docker restart
+bash  
+sudo groupadd docker  
+sudo gpasswd -a ${USER} docker  
+sudo service docker restart  
 ### 1.5 配置 Docker 镜像加速器
-创建或编辑 `/etc/docker/daemon.json`：
-json
-{
-"registry-mirrors": [
-"https://docker.m.daocloud.io",
-"https://hub-mirror.c.163.com",
-"https://mirror.baidubce.com",
-"https://docker.nju.edu.cn",
-"https://docker.mirrors.sjtug.sjtu.edu.cn",
-"https://registry.docker-cn.com"
-]
-}
-重载配置并重启 Docker：
-bash
-sudo systemctl daemon-reload
-sudo systemctl restart docker
-sudo docker info
+创建或编辑 `/etc/docker/daemon.json`：  
+json  
+{  
+"registry-mirrors": [  
+"https://docker.m.daocloud.io",  
+"https://hub-mirror.c.163.com",  
+"https://mirror.baidubce.com",  
+"https://docker.nju.edu.cn",  
+"https://docker.mirrors.sjtug.sjtu.edu.cn",  
+"https://registry.docker-cn.com"  
+]  
+}  
+重载配置并重启 Docker：  
+bash  
+sudo systemctl daemon-reload  
+sudo systemctl restart docker  
+sudo docker info  
