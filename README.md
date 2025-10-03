@@ -97,13 +97,13 @@ bash
 bash  
 `sudo apt install docker-ce docker-ce-cli containerd.io`  
 验证安装  
-sudo docker version  
-sudo systemctl status docker  
+`sudo docker version`  
+`sudo systemctl status docker`  
 ### 1.4 配置用户权限
 bash  
-sudo groupadd docker  
-sudo gpasswd -a ${USER} docker  
-sudo service docker restart  
+`sudo groupadd docker`  
+`sudo gpasswd -a ${USER} docker`  
+`sudo service docker restart`  
 ### 1.5 配置 Docker 镜像加速器
 创建或编辑 `/etc/docker/daemon.json`：  
 json  
@@ -119,6 +119,6 @@ json
 }  
 重载配置并重启 Docker：  
 bash  
-sudo systemctl daemon-reload  
-sudo systemctl restart docker  
-sudo docker info  
+`sudo systemctl daemon-reload`  
+`sudo systemctl restart docker`  
+`sudo docker info`  
