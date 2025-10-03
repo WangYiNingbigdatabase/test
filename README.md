@@ -21,6 +21,7 @@ Windows
 ## 2. 下载对应系统架构和版本的 Docker 镜像
 Ubuntu:Ctrl+Alt+T打开终端   
 Windows:Win+X选择"终端管理员"  
+**以下命令需要修改为你需要的版本和架构!!!**
 若是AMD架构，不需要指定"--platform"  
 `docker run -it --rm ubuntu:22.04 bash`  
 如果是ARM架构，可以用"--platform"指定  
@@ -49,14 +50,13 @@ Windows:Win+X选择"终端管理员"
 bash
 `scp -r ~/Desktop/offline-packages/ user@192.168.1.200:~/Downloads/`  
 ### 5.2 使用 U盘 传输（物理方式）
-将 `~/Desktop/offline-packages/` 目录复制到 U盘，然后在离线电脑上从 U盘 复制到目标位置。
+
 
 ## 6. 离线环境安装验证
-
-### 6.1 模拟安装测试
+### 6.1 模拟安装测试(离线电脑为Ubuntu)
 bash
 `sudo dpkg --dry-run -i ~/Downloads/offline-packages/*.deb`  
-### 6.2 正式安装
+### 6.2 正式安装(离线电脑为Ubuntu)
 如果模拟安装无冲突提示，执行正式安装：
 bash
 `sudo dpkg -i ~/Downloads/offline-packages/*.deb`  
