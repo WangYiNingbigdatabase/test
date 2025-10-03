@@ -13,7 +13,11 @@
 
 ## 1. Docker 安装与配置
 为Ubuntu提供了install_docker.py的一键安装脚本，在本文末尾也提供了手动安装的流程，若脚本无效可以查看手动安装流程  
-为Windows提供了一个安装Docker Desktop的链接:https://blog.csdn.net/G_whang/article/details/144677922
+为Windows提供了一个安装Docker Desktop的链接:https://blog.csdn.net/G_whang/article/details/144677922  
+Ubuntu  
+`python install_docker.py`  
+Windows  
+`./install-docker.ps1`
 ## 2. 下载对应系统架构和版本的 Docker 镜像
 Ubuntu:Ctrl+Alt+T打开终端   
 Windows:Win+X选择"终端管理员"  
