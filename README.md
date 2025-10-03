@@ -51,7 +51,7 @@ bash
 `scp -r ~/Desktop/offline-packages/ user@192.168.1.200:~/Downloads/`  
 ~/Desktop/offline-packages/ 为安装包在本地电脑上的位置  
 user@192.168.1.200为远程电脑的名称与ip  
-~/Downloads/`为远程电脑需要拷贝的位置  
+~/Downloads/`为拷贝到远程电脑上的位置  
 ### 5.2 使用 U盘 传输（物理方式）
 
 
