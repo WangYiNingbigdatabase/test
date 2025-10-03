@@ -11,6 +11,14 @@
 4.**将安装包拷贝到本地**:docker cp命令将安装包拷贝到本地电脑上,注意修改为自己的路径。  
 5.**在离线的电脑安装**:先使用U盘或SCP远程传输等方式将本地电脑上的安装包传到离线电脑上，之后进行安装。 
 
+## 注意事项  
+
+1. 下载过程中可能遇到网络问题，可以通过设置镜像源或代理解决  
+2. **没有代理可能无法注册或登录Docker(网络问题)**  
+3. 如果Docker Desktop因为setting.json或daemon.json等配置问题无法启动，可以还原默认配置。  
+4. 确保离线环境与下载环境的系统版本和架构一致  
+5. **教程中的离线电脑系统为Ubuntu系统。如果离线电脑是Windows部分命令需要调整**  
+   
 ## 1. Docker 安装与配置
 为Ubuntu提供了install_docker.py的一键安装脚本，在本文末尾也提供了手动安装的流程，若脚本无效可以查看手动安装流程  
 为Windows提供了一个安装Docker Desktop的链接:https://blog.csdn.net/G_whang/article/details/144677922  
@@ -64,13 +72,6 @@ bash
 如果模拟安装无冲突提示，执行正式安装：
 bash
 `sudo dpkg -i ~/Downloads/offline-packages/*.deb`  
-## 注意事项
-
-1. 下载过程中可能遇到网络问题，可以通过设置镜像源或代理解决  
-2. **没有代理可能无法注册或登录(网络问题)**
-3. 如果Docker Desktop因为setting.json或daemon.json等配置问题无法启动，可以还原默认配置。
-4. 确保离线环境与下载环境的系统版本和架构一致
-5. **教程中的离线电脑系统为Ubuntu系统。如果离线电脑是Windows部分命令需要调整**
 
 ## 参考资源
 ### 相关链接
@@ -82,8 +83,8 @@ bash
 
 ### 1.1 卸载旧版本并安装依赖
 bash  
-sudo apt-get remove docker docker-engine docker.io containerd runc  
-sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg lsb-release  
+`sudo apt-get remove docker docker-engine docker.io containerd runc`  
+`sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg lsb-release`  
 ### 1.2 添加阿里云 Docker 镜像源
 bash
 添加阿里云 GPG Key   
