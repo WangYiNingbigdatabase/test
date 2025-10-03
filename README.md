@@ -5,7 +5,7 @@
 本文档介绍如何在联网机器上通过 Docker 容器下载特定架构和系统版本的软件包，并将其转移到离线环境中进行安装。  
 ## 流程介绍
 ![流程图](https://github.com/WangYiNingbigdatabase/test/blob/main/%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
-1.**安装Docker**:Docker可以安装docker desktop或者docker engine,下面为Ubuntu提供docker engine的自动安装脚本和手动安装流程,为windows提供了一个安装docker desktop的链接。  
+1.**安装Docker**:Docker可以安装Docker Desktop或者Docker Engine,下面为本地电脑为Ubuntu系统提供Docker Engine的自动安装脚本install_docker.py和手动安装教程,为Windows用户提供了一个安装Docker Desktop的教程链接(图形化下载与配置镜像源等)和一个下载Docker Desktop的脚本install-docker.ps1。  
 2.**下载所需镜像**:其实就是下载与离线电脑架构(如ARM/AMD)、版本(如Ubuntu22.04/Ubuntu20.04)相同的镜像。  
 3.**在容器内下载所需包**:以download-only模式下载，不会安装，对于ubuntu来说，会下载许多.deb包。  
 4.**将安装包拷贝到本地**:docker cp命令将安装包拷贝到本地电脑上,注意修改为自己的路径。  
@@ -58,9 +58,10 @@ bash
 ## 注意事项
 
 1. 下载过程中可能遇到网络问题，可以通过设置镜像源或代理解决  
-2. 没有代理可能无法注册或登录
-3.   
-4. 确保离线环境与下载环境的系统版本和架构一致  
+2. **没有代理可能无法注册或登录**
+3. 如果Docker Desktop因为setting.json或daemon.json等配置问题无法启动，可以还原默认配置。
+4. 确保离线环境与下载环境的系统版本和架构一致
+5. **教程中的离线电脑系统为Ubuntu系统。如果离线电脑是Windows部分命令需要调整**
 
 ## 参考资源
 ### 相关链接
