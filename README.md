@@ -49,6 +49,9 @@ Windows:Win+X选择"终端管理员"
 ### 5.1 使用 SCP 传输（通过网络）
 bash
 `scp -r ~/Desktop/offline-packages/ user@192.168.1.200:~/Downloads/`  
+~/Desktop/offline-packages/ 为安装包在本地电脑上的位置  
+user@192.168.1.200为远程电脑的名称与ip  
+~/Downloads/`为远程电脑需要拷贝的位置  
 ### 5.2 使用 U盘 传输（物理方式）
 
 
@@ -56,6 +59,7 @@ bash
 ### 6.1 模拟安装测试(离线电脑为Ubuntu)
 bash
 `sudo dpkg --dry-run -i ~/Downloads/offline-packages/*.deb`  
+~/Downloads/offline-packages/为安装包文件夹的位置
 ### 6.2 正式安装(离线电脑为Ubuntu)
 如果模拟安装无冲突提示，执行正式安装：
 bash
