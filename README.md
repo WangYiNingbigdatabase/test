@@ -59,31 +59,26 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 sudo docker info
 ## 2. 下载对应系统架构和版本的 Docker 镜像
-
-### 2.1 AMD64 架构
-bash
-docker run -it --rm ubuntu:22.04 bash
-### 2.2 ARM64 架构
-bash
-创建多平台构建器（如需要）
-docker buildx create --name mybuilder --use
-docker buildx inspect --bootstrap
-下载并运行 ARM64 架构的 Ubuntu
-docker pull --platform linux/arm64 arm64v8/ubuntu:22.04
-docker run -it --rm --platform linux/arm64 arm64v8/ubuntu:22.04 bash
-验证架构
-uname -m
+Ubuntu:Ctrl+Alt+T打开终端   
+Windows:Win+X选择"终端管理员"  
+若是AMD架构，不需要指定"--platform"  
+'docker run -it --rm ubuntu:22.04 bash'  
+如果是ARM架构，可以用"--platform"指定  
+'docker run -it --rm --platform linux/arm64 arm64v8/ubuntu:22.04 bash'  
+此处加上成功和失败两张照片  
 ## 3. 在容器中下载所需软件包
-bash
-进入容器后执行
-apt update
-apt install -y --download-only libeigen3-dev liborocos-kdl-dev libkdl-parser-dev liburdfdom-dev libnlopt-dev
+进入容器后执行,第二步的docker run会下载并自动进入容器
+'apt update'  
+以下载libeigen3-dev包为例  
+'apt install -y --download-only libeigen3-dev'  
+此处添加下载成功图片  
+下载后的安装包默认在此路径(Ubuntu):/var/cache/apt/archives/  
 ## 4. 将软件包拷贝到本地
-bash
 查找容器 ID 或名称
-docker ps -a
+'docker ps -a'
 拷贝软件包到本地
-docker cp <容器ID或名称>:/var/cache/apt/archives/ ~/Desktop/offline-packages/
+'docker cp <容器ID或名称>:/var/cache/apt/archives/ ~/Desktop/offline-packages/'  
+此处添加图片  
 ## 5. 将安装包传输到离线电脑
 
 ### 5.1 使用 SCP 传输（通过网络）
