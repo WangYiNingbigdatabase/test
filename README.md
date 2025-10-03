@@ -29,9 +29,9 @@ Windows:Win+X选择"终端管理员"
 `apt update`  
 以下载libeigen3-dev包为例  
 `apt install -y --download-only libeigen3-dev`  
-![成功下载包](https://github.com/WangYiNingbigdatabase/test/blob/main/%E6%88%90%E5%8A%9F%E4%B8%8B%E8%BD%BD%E5%8C%85.png)
+![成功下载包](https://github.com/WangYiNingbigdatabase/test/blob/main/%E6%88%90%E5%8A%9F%E4%B8%8B%E8%BD%BD%E5%8C%85.png)  
 下载后的安装包默认在此路径(Ubuntu):/var/cache/apt/archives/  
-![查看下载包](https://github.com/WangYiNingbigdatabase/test/blob/main/%E6%9F%A5%E7%9C%8B%E4%B8%8B%E8%BD%BD%E5%8C%85.png)
+![查看下载包](https://github.com/WangYiNingbigdatabase/test/blob/main/%E6%9F%A5%E7%9C%8B%E4%B8%8B%E8%BD%BD%E5%8C%85.png)  
 ## 4. 将软件包拷贝到本地
 查找容器 ID 或名称
 `docker ps -a`
